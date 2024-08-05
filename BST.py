@@ -4,11 +4,9 @@ class TreeNode:
         self.data = data
         self.left = left
         self.right = right
-
     def __str__(self):
         return f'TreeNode(data={self.data}, left={self.left}, right={self.right})'
     
-
 class BinarySearchTree:
     def __init__(self, tree_data):
         self.root = None
@@ -30,18 +28,16 @@ class BinarySearchTree:
                 self.insert(node.right, value)
 
     def get_sorted(self, node, result):
-        print(node, result)
         if node is not None:
             self.get_sorted(node.left, result)
             result.append(node.data)
-            print(result)
             self.get_sorted(node.right, result)
 
     def sorted_data(self):
         result = []
         self.get_sorted(self.root, result)
         return result
-
+    
     def data(self):
         return self.root
     
